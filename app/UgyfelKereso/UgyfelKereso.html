@@ -1,0 +1,62 @@
+<h3>Ügyfél kereső</h3>
+<form class="form-inline" >
+    <div class="form-group">
+        <label>
+            Szűrés név szerint:
+        </label>
+        <input class="form-control" type="text" ng-model="nevszuro">
+    </div>
+    <div class="form-group">
+        <label>
+            Szűrés ország szerint:
+        </label>
+            <input class="form-control" type="text" ng-model="orszagszuro">
+    </div>
+    <div class="form-group">
+        <label>
+            Személyi azonosító szerint:
+        </label>
+            <input class="form-control" type="text" ng-model="szemelyiszamszuro">
+    </div>
+</form>
+<table class="table-bordered">
+    <caption>Az ügyfelek listája</caption>
+    <thead>
+    <tr>
+        <th style="text-align: center">Név</th>
+        <th style="text-align: center">Ország</th>
+        <th style="text-align: center">Helység</th>
+        <th style="text-align: center">Irányítószám</th>
+        <th style="text-align: center">Utca, házszám</th>
+        <th style="text-align: center">Személyi azonosító</th>
+        <th style="text-align: center">Születési idő</th>
+        <th style="text-align: center">Születési hely</th>
+        <th style="text-align: center">Telefonszám</th>
+        <th style="text-align: center">E-mail cím</th>
+        <th style="text-align: center">Ügyfél jellege</th>
+        <th style="text-align: center">Leánykori név</th>
+        <th style="text-align: center">Adószám</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="egyugyfel in allugyfelek | filter:{ 'nev' : nevszuro} | filter:{ 'orszag' : orszagszuro} | filter:{ 'szemIgSzam' : szemelyiszamszuro} "
+        ng-click="showSelectedElement(egyugyfel)"
+        ng-class-even="'even'"
+        ng-class-odd="'odd'"
+    >
+        <td>{{egyugyfel.nev}}</td>
+        <td>{{egyugyfel.orszag}}</td>
+        <td>{{egyugyfel.helyseg}}</td>
+        <td>{{egyugyfel.iranyitoszam}}</td>
+        <td>{{egyugyfel.utcaHazszam}}</td>
+        <td>{{egyugyfel.szemIgSzam}}</td>
+        <td>{{egyugyfel.szuletesiIdo}}</td>
+        <td>{{egyugyfel.szuletesiHely}}</td>
+        <td>{{egyugyfel.telefonszam}}</td>
+        <td>{{egyugyfel.EMail}}</td>
+        <td>{{egyugyfel.ugyfelJellege}}</td>
+        <td>{{egyugyfel.leanykoriNev}}</td>
+        <td>{{egyugyfel.adoszam}}</td>
+    </tr>
+    </tbody>
+</table>

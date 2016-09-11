@@ -1,0 +1,113 @@
+<h3>Ügyfél módosítás</h3>
+<form>  
+    <div class="row">
+        <div class="col-md-4">
+            <label>
+                Név
+            </label>
+            <input ng-model="modositandoUgyfel.nev" type="text" class="form-control" >
+        </div>
+        <div class="col-md-4">
+            <label>
+                Ország
+            </label>
+                <input ng-model="modositandoUgyfel.orszag" type="text" class="form-control" >
+        </div>
+    </div>
+    <div class="row">
+            <div class="col-md-4">
+                <label>
+                    Helység
+                </label>
+                <input ng-model="modositandoUgyfel.helyseg" type="text" class="form-control" >
+            </div>
+            <div class="col-md-4">
+                <label>
+                    Irányítószám
+                </label>
+                <input ng-model="modositandoUgyfel.iranyitoszam" type="text" class="form-control" >
+            </div>
+    </div>
+    <div class="row">
+            <div class="col-md-4">
+                <label>
+                    Utca,házszám
+                </label>
+                <input ng-model="modositandoUgyfel.utcaHazszam" type="text" class="form-control" >
+            </div>
+            <div class="col-md-4">
+                <label>
+                    Személyi azonosító
+                </label>
+                <input ng-model="modositandoUgyfel.szemIgSzam" type="text" class="form-control" >
+            </div>
+    </div>
+    <div class="row">
+            <div class="col-md-4">
+                <label>
+                    Születési idő
+                </label>
+                <input ng-model="modositandoUgyfel.szuletesiIdo" type="date" class="form-control" >
+            </div>
+            <div class="col-md-4">
+                <label>
+                    Születési hely
+                </label>
+                <input ng-model="modositandoUgyfel.szuletesiHely" type="text" class="form-control" >
+            </div>
+    </div>
+    <div class="row">
+            <div class="col-md-4">
+                <label>
+                    Státusz
+                </label>
+                <input ng-model="modositandoUgyfel.statusz" type="text" class="form-control" >
+            </div>
+            <div class="col-md-4">
+                <label>
+                    Telefonszám
+                </label>
+                <input ng-model="modositandoUgyfel.telefonszam" type="text" class="form-control" >
+            </div>
+    </div>
+    <div class="row">
+            <div class="col-md-4">
+                <label>
+                    E-mail cím
+                </label>
+                <input ng-model="modositandoUgyfel.EMail" type="text" class="form-control" >
+            </div>
+            <div class="col-md-4">
+                <label>
+                    Anyja neve
+                </label>
+                <input ng-model="modositandoUgyfel.anyjaNeve" type="text" class="form-control" >
+            </div>
+    </div>
+    <div class="row">
+            <div class="col-md-4">
+                <label>
+                    Ügyfél jellege
+                </label>
+                <input ng-model="modositandoUgyfel.ugyfelJellege" type="text" class="form-control" >
+            </div>
+            <div class="col-md-4">
+                <label>
+                    Leánykori név
+                </label>
+                <input ng-model="modositandoUgyfel.leanykoriNev" type="text" class="form-control" >
+            </div>
+    </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label>
+                    Adószám
+                </label>
+                <input ng-model="modositandoUgyfel.adoszam" type="text" class="form-control" >
+            </div>
+        </div>
+     <div class="text-center">
+          <button class="btn btn-primary" ng-click="modositUgyfel()"> Módosítás </button>
+          <button class="btn btn-warning" ng-click="torolUgyfel()"> Törlés </button>
+     </div>
+</form>

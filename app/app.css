@@ -1,0 +1,17 @@
+.menu > li {
+  display: inline;
+}
+
+.odd{
+    background-color: aliceblue; 
+}
+.even{
+    background-color: #b3d4fc;
+}
+tr{
+    cursor: pointer;
+}
+
+.szurotabla{
+    border-spacing: 15px;
+}

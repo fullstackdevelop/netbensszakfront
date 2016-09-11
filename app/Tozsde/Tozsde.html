@@ -1,0 +1,72 @@
+<h3>Tőzsde</h3>
+    <p>A kiválasztott ügyfél egyenlege: {{ugyfelegyenleg.egyenleg}}</p>
+    
+    <table class="table-bordered" >
+        <caption>Részvények listája</caption>
+        <thead>
+            <tr>
+                <th align="left">Név</th>
+                <th>ISIN</th>
+                <th>Tőzsde név</th>
+                <th>Kategória</th>
+                <th>Kibocsátó ország</th>
+                <th>Aktuális ár</th>
+                <th>Birtokolt darabszám</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr
+        ng-class-even="'even'"
+        ng-class-odd="'odd'"
+        ng-repeat="egyertekpapir in allertekpapirok"
+        ng-click="setSelectedReszvenyGraf(egyertekpapir)" >
+            <td>{{egyertekpapir.nev}}</td>
+            <td>{{egyertekpapir.isinCode}}</td>
+            <td>{{egyertekpapir.tozsdeNev}}</td>
+            <td>{{egyertekpapir.kategoria}}</td>
+            <td>{{egyertekpapir.kibocsatasOrszag}}</td>
+            <td ng-repeat="egyarfolyam in allarfolyamok | filter:{ 'ertekpapirId' : egyertekpapir.id}">{{egyarfolyam.ar}}</td>
+            <td ng-repeat="ertekpapirbirtoklas in ertekpapirbirtoklasok | filter:{ 'ertekpapirId' : egyertekpapir.id} | filter:{ 'ugyfelId' : erkeztetettugyfel.id}">{{ertekpapirbirtoklas.darabszam}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <div ng-if='!kivalasztottreszveny'>
+      <p class="text-center"> <b>Nincs kiválasztott részvény!</b> 
+      </p>
+    </div>
+    <div ng-if='kivalasztottreszveny'>
+        <p class="text-center"><b>A kiválasztott részvény: {{kivalasztottreszveny.nev}}</b></p>
+    </div>
+    <p></p>
+    <div ng-if='kivalasztottreszveny'>
+            <canvas id="line" class="chart chart-line" chart-data="[ertekek]"
+              chart-labels="idopontok" chart-legend="false" chart-options="[options]" chart-series=""
+              chart-click="onClick"  >
+            </canvas> 
+
+            <form> 
+                <div class="text-center">
+                    <div  class="row">
+                        <div class="col-md-4">
+                            <label>
+                                Darabszám
+                            </label>
+                            <input ng-model="rogzitendoAjanlat.darabszam" type="text" class="form-control" placeholder="darabszám">
+                        </div>
+                        <div class="col-md-4">
+                            <label>
+                                Ajánlott ár
+                            </label>
+                            <input ng-model="rogzitendoAjanlat.ajanlatiAr" type="text" class="form-control" placeholder="ár">
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="text-center">
+                <button class="btn btn-primary" ng-click="veteliAjanlat()"> Vétel </button>
+                <button class="btn btn-warning" ng-click="eladasiAjanlat()"> Eladás </button>
+            </div>
+    </div>
+        
+    
+
